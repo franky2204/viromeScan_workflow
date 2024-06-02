@@ -1,0 +1,26 @@
+FROM continuumio/miniconda3
+LABEL maintainer="pandafake589@gmail.com"
+
+WORKDIR /
+
+RUN git clone https://github.com/simonerampelli/viromescan.git
+RUN mv viromescan viromescan2
+RUN conda env create -f viromescan2/viromescan2.yml -p /opt/conda/envs/viromescan
+RUN wget https://sourceforge.net/projects/viromescan/files/viromescan.tar.gz
+RUN tar -zxvf viromescan.tar.gz
+RUN rm -fr viromescan/tools/bmtagger.sh
+RUN mv viromescan2/bmtagger.sh viromescan/tools/
+#delete the dbs
+RUN rm -fr /viromescan/viromescan/dbs
+RUN mv viromescan /opt/conda/envs/viromescan
+RUN ln -s /opt/conda/envs/viromescan/viromescan/viromescan.sh  /opt/conda/envs/viromescan/bin/viromescan
+RUN rm -fr viromescan.tar.gz
+RUN rm -fr viromescan2
+RUN apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
+RUN rm -r /opt/conda/envs/viromescan/viromescan/database
+RUN rm -r  /opt/conda/envs/viromescan/viromescan/viromescan.sh
+COPY ./viromescan.sh /opt/conda/envs/viromescan/viromescan/
+COPY ./scripts /scripts
+RUN chmod +x /scripts/virome_run.sh
+RUN chmod +x /opt/conda/envs/viromescan/bin/viromescan

@@ -1,0 +1,14 @@
+read_1:
+  class: File
+  path: /media/francesco/Volume/Work/viromescan_dir/first4/HV06_R1.fq
+read_2:
+  class: File
+  path: /media/francesco/Volume/Work/viromescan_dir/first4/HV06_R2.fq
+threads: 11
+scan_type: virus_ALL
+viro_db:
+  class: Directory
+  path: /media/francesco/Volume/Work/viromescan_dir
+viro_exec:
+  class: File
+  path: /home/francesco/Desktop/git/mine/viromeScan/Viromescan/viromescan.sh
