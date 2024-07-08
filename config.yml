@@ -1,14 +1,32 @@
 read_1:
   class: File
-  path: /media/francesco/Volume/Work/viromescan_dir/first4/HV06_R1.fq
+  path: /media/francesco/Volume/Work/To-runViroscan/input/TEC27T0_R1.fq
 read_2:
   class: File
-  path: /media/francesco/Volume/Work/viromescan_dir/first4/HV06_R2.fq
-threads: 11
-scan_type: virus_ALL
+  path: /media/francesco/Volume/Work/To-runViroscan/input/TEC27T0_R2.fq
+
+threads: 30
+scan_type: virus_DNA
 viro_db:
   class: Directory
   path: /media/francesco/Volume/Work/viromescan_dir
 viro_exec:
   class: File
   path: /home/francesco/Desktop/git/mine/viromeScan/Viromescan/viromescan.sh
+
+index:
+  class: File
+  path: /backup/Ref/hg38/hg38.fa
+index_chm13:
+  class: File
+  path: /backup/fpantini/genomes/chm13_indexed/chm13v2.0.fa
+
+
+db_path:
+  class: File
+  path: /backup/fpantini/kraken_oBact_DB/bacteriaOnly/hash.k2d
+
+fastq_directory:
+  class: Directory
+  location: /backup/fpantini/humann_DB/input
+

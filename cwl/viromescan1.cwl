@@ -52,12 +52,11 @@ inputs:
       position: 6
       prefix: '-2'
  
-  output_folder:
-    type: string?
-    default: 'output'
-    inputBinding:
-      position: 7
-      prefix: '-o'
+arguments:
+  - position: 7
+    valueFrom: -o
+  - position: 8
+    valueFrom: "output"
   
      
 outputs:
