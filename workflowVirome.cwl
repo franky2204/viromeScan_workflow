@@ -48,10 +48,10 @@ outputs:
     outputSource: humanmapper/unmapped_R2
   unmapped_chm_R1:
     type: File[]
-    outputSource: humanMapper_chm13/unmapped_chm_R1
+    outputSource: humanMapper_chm13/unmapped_R1
   unmapped_chm_R2:
     type: File[]
-    outputSource: humanMapper_chm13/unmapped_chm_R2
+    outputSource: humanMapper_chm13/unmapped_R2
   read_1_output:
     type: File[]
     outputSource: kraken2/read_1_output
@@ -71,7 +71,7 @@ outputs:
     type: File[]
     outputSource: count-genome3/count
   virome_output:
-    type: Directory
+    type: Directory[]
     outputSource: viromescan/output
 
 steps:
@@ -153,6 +153,5 @@ steps:
       scan_type: scan_type
       read_1: kraken2/read_1_output
       read_2: kraken2/read_2_output
-      output_folder: output_folder
     out: [output]
     
