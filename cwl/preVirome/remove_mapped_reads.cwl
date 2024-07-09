@@ -9,7 +9,6 @@ requirements:
         writable: True
       - entry: $(inputs.read_2)
         writable: True
-      - entry: $(inputs.index)
   
 
 hints:
@@ -30,8 +29,7 @@ inputs:
         ${ return (self.class == "File") ? self.dirname : self.path }
     secondaryFiles:
       - $("opts.k2d")
-      - $("taxo.k2d")
-      
+      - $("taxo.k2d")     
   read_1:
     type: File
     inputBinding:
@@ -46,6 +44,7 @@ inputs:
     inputBinding:
       position: 4
       prefix: "--threads"
+
 outputs:
   read_1_output:
     type: File
