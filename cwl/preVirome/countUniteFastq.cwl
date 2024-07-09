@@ -12,6 +12,8 @@ requirements:
         writable: True
       - entry: $(inputs.read_2)
         writable: True
+      - entry: $(inputs.file_count)
+        writable: True
 
 hints:
   DockerRequirement:
