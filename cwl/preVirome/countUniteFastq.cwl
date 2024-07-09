@@ -19,7 +19,7 @@ hints:
 
 
 
-baseCommand: ["bash", "/scripts/countFastq.sh"]
+baseCommand: ["bash", "/scripts/countUniteFastq.sh"]
 
 
 inputs:
@@ -31,6 +31,10 @@ inputs:
     type: File
     inputBinding:
       position: 2 
+  file_count:
+    type: File?
+    inputBinding:
+      position: 3
 
 
 outputs:

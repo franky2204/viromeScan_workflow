@@ -9,6 +9,8 @@ requirements:
         writable: True
       - entry: $(inputs.read_2)
         writable: True
+      - entry: $(inputs.index)
+  
 
 hints:
   DockerRequirement:
@@ -44,7 +46,6 @@ inputs:
     inputBinding:
       position: 4
       prefix: "--threads"
-
 outputs:
   read_1_output:
     type: File
