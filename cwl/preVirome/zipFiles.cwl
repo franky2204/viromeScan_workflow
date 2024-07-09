@@ -3,12 +3,19 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
-  InitialWorkDirRequirement:
-    listing: [ $(inputs.index) ]
+  InitialWorkDirRequirement: 
+    listing:
+      - entry: $(inputs.read_1)
+        writable: True
+      - entry: $(inputs.read_2)
+        writable: True
+  
 
 hints:
   DockerRequirement:
     dockerPull: scontaldo/humanmapper
+  ResourceRequirement:
+    coresMax: $(inputs.threads)
 
 baseCommand: ["pigz", "-p"]
 
@@ -31,8 +38,8 @@ outputs:
   read_1_zip:
     type: File
     outputBinding:
-      glob: "$(inputs.read_1.basename).gz"
+      glob: "*R1.f*.gz"
   read_2_zip:
     type: File
     outputBinding:
-      glob: "$(inputs.read_2.basename).gz"
+      glob: "*R2.f*.gz"

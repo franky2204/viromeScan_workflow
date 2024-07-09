@@ -1,0 +1,6 @@
+read_1:
+  class: File
+  path: /home/francesco/Desktop/ziptry/file_R1.fastq
+read_2:
+  class: File
+  path: /home/francesco/Desktop/ziptry/file_R2.fastq

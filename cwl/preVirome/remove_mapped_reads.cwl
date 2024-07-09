@@ -14,6 +14,8 @@ requirements:
 hints:
   DockerRequirement:
     dockerPull: scontaldo/kraken2:v2.1.2 
+  ResourceRequirement:
+    coresMax: $(inputs.threads)
 
 baseCommand: ["kraken2", "--paired", "--unclassified-out", "fasta_out#.fastq"]
 
