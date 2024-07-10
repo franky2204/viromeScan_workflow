@@ -37,10 +37,10 @@ inputs:
 outputs:
     read_1_kraken:
         type: File
-        outputSource: zip-kraken/read_1_zip
+        outputSource: kraken2\read_1_output
     read_2_kraken:  
         type: File
-        outputSource: zip-kraken/read_2_zip
+        outputSource: kraken2\read_2_output
     count:
         type: File
         outputSource: count-genome3/count
@@ -91,16 +91,10 @@ steps:
       db_path: db_path
       threads: threads
     out: [read_1_output, read_2_output]
-  zip-kraken:
-    run: preVirome/zipFiles.cwl
+  count-genome3:
+    run: preVirome/countFast.cwl
     in:
       read_1: kraken2/read_1_output
       read_2: kraken2/read_2_output
-    out: [read_1_zip, read_2_zip]
-  count-genome3:
-    run: preVirome/countUniteFastq.cwl
-    in:
-      read_1: zip-kraken/read_1_zip
-      read_2: zip-kraken/read_2_zip
       file_count: count-genome2/count
     out: [count]
