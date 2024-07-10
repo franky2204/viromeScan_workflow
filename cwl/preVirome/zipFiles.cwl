@@ -38,8 +38,8 @@ outputs:
   read_1_zip:
     type: File
     outputBinding:
-      glob: "*R1.f*.gz"
+      glob: "*_1.f*.gz"
   read_2_zip:
     type: File
     outputBinding:
-      glob: "*R2.f*.gz"
+      glob: "*_2.f*.gz"
