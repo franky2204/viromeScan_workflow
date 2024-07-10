@@ -37,10 +37,10 @@ inputs:
 outputs:
     read_1_kraken:
         type: File
-        outputSource: kraken2\read_1_output
+        outputSource: kraken2/read_1_output
     read_2_kraken:  
         type: File
-        outputSource: kraken2\read_2_output
+        outputSource: kraken2/read_2_output
     count:
         type: File
         outputSource: count-genome3/count
