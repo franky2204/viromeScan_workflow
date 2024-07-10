@@ -52,8 +52,14 @@ outputs:
     type: File
     outputBinding:
       glob: "fasta_out_1.fastq"
+      outputEval: ${
+          self[0].basename = inputs.read_1.nameroot+"_kraken.fastq";
+          return self; }
 
   read_2_output: 
     type: File
     outputBinding:
       glob: "fasta_out_2.fastq"
+      outputEval: ${
+          self[0].basename = inputs.read_2.nameroot+"_kraken.fastq";
+          return self; }
