@@ -1,6 +1,10 @@
 FROM continuumio/miniconda3
 LABEL maintainer="pandafake589@gmail.com"
 
+
+RUN apt-get update
+RUN apt-get install gcc make libbz2-dev zlib1g-dev seqtk -y
+
 WORKDIR /
 
 RUN git clone https://github.com/simonerampelli/viromescan.git
