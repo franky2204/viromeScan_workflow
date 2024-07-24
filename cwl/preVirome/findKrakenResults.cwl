@@ -1,26 +1,34 @@
-cwlVersion: v1.2
-class: CommandLineTool
-baseCommand: ["bash", "-c"]
+#!/usr/bin/env cwl-runner
+cwlVersion: "v1.2"
+class: ExpressionTool
+
+requirements:
+  InlineJavascriptRequirement: {}
+  LoadListingRequirement:
+    loadListing: shallow_listing
 
 inputs:
+  dir:
+    type: Directory
   read_1:
     type: File
-  kraken_res_dir:
-    type: Directory
 
-arguments:
-  - valueFrom: >
-      file=$(basename $(inputs.read_1.path) | cut -d'_' -f1).kraken2;
-      if [ -f $(inputs.kraken_res_dir.path)/$file ]; then
-        cp $(inputs.kraken_res_dir.path)/$file $(inputs.kraken_res_dir.basename | cut -d'_' -f1).kraken2;
-      else
-        echo "File not found: $(inputs.input_dir.path)/$file" 1>&2;
-        exit 1;
-      fi
-    shellQuote: false
+expression: |
+  ${
+    var files = inputs.dir.listing;
+    var name = inputs.read_1.basename.split(".")[0];
+    var name2 = name.split("_")[0];
+    var result = null;
+
+    files.forEach(function (file) {
+      if (file.basename.endsWith(".kraken2") && file.basename.startsWith(name2)){
+        result = file;
+      }
+    });
+
+    return {"kraken_res": result};
+  }
 
 outputs:
-  kraken_res:
+  kraken_res: 
     type: File
-    outputBinding:
-      glob: "*.kraken2"

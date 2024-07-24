@@ -83,7 +83,7 @@ steps:
     run: preVirome/findKrakenResults.cwl
     in:
       read_1: humanMapper_chm13/unmapped_R1
-      kraken_res_dir: kraken_res_dir
+      dir: kraken_res_dir
     out: [kraken_res]
   remove_taxID:
     run: preVirome/removeTaxID.cwl
