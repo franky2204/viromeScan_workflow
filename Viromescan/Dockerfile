@@ -3,7 +3,7 @@ LABEL maintainer="pandafake589@gmail.com"
 
 
 RUN apt-get update
-RUN apt-get install gcc make libbz2-dev zlib1g-dev seqtk -y
+RUN apt-get install gcc make libbz2-dev zlib1g-dev seqtk pigz -y
 
 WORKDIR /
 
