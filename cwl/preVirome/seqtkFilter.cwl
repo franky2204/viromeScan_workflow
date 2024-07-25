@@ -4,7 +4,13 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
-
+  InitialWorkDirRequirement:
+    listing:
+      - entry: $(inputs.read_1)
+        writable: True
+      - entry: $(inputs.read_2)
+        writable: True
+        
   DockerRequirement:
     dockerPull: fpant/viromescan
 
