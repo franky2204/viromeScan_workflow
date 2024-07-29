@@ -42,7 +42,7 @@ outputs:
     outputSource: count-genome3/count
   krakenNB_res:
     type: File
-    outputSource: remove_taxID/krakenNB_res
+    outputSource: only_position/kraken_pos
   
     
 
