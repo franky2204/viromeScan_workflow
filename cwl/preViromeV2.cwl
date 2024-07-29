@@ -40,6 +40,10 @@ outputs:
   count:
     type: File
     outputSource: count-genome3/count
+  krakenNB_res:
+    type: File
+    outputSource: remove_taxID/krakenNB_res
+  
     
 
 steps:

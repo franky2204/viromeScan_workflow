@@ -46,12 +46,21 @@ inputs:
   scan_type: string
 
 outputs:
-  output: 
-    type: Directory[]
-    outputSource: viromescan/output
+#  output: 
+#    type: Directory[]
+#    outputSource: viromescan/output
   count:
     type: File[]
     outputSource: pre-viromeV2/count
+  krakenNB_res:
+    type: File[]
+    outputSource: pre-viromeV2/krakenNB_res
+  readNB_1:
+    type: File[]
+    outputSource: pre-viromeV2/readNB_1
+  readNB_2: 
+    type: File[]
+    outputSource: pre-viromeV2/readNB_2
     
 steps:
   check-input:
@@ -71,16 +80,16 @@ steps:
       index_chm13: index_chm13
       bacteria_ids: bacteria_ids
       kraken_res_dir: kraken_res_dir
-    out: [readNB_1, readNB_2, count]
-  viromescan:
-    run: cwl/viromescan1.cwl
-    scatter: [read_1,read_2]
-    scatterMethod: dotproduct
-    in:
-      viro_exec: viro_exec
-      threads: threads
-      viro_db: viro_db
-      scan_type: scan_type
-      read_1: pre-viromeV2/readNB_1
-      read_2: pre-viromeV2/readNB_2
-    out: [output]
+    out: [readNB_1, readNB_2,krakenNB_res,count]
+#  viromescan:
+#    run: cwl/viromescan1.cwl
+#    scatter: [read_1,read_2]
+#    scatterMethod: dotproduct
+#    in:
+#      viro_exec: viro_exec
+#      threads: threads
+#      viro_db: viro_db
+#      scan_type: scan_type
+#      read_1: pre-viromeV2/readNB_1
+#      read_2: pre-viromeV2/readNB_2
+#    out: [output]
