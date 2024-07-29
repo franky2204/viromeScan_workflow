@@ -95,12 +95,17 @@ steps:
       kraken_res: find_kraken_results/kraken_res
       bacteria_ids: bacteria_ids
     out: [krakenNB_res]
+  only_position:
+    run: preVirome/onlyPosition.cwl
+    in:
+      kraken_res: remove_taxID/krakenNB_res
+    out: [kraken_pos]
   seqtdk_filter:
     run: preVirome/seqtkFilter.cwl
     in:
       read_1: humanMapper_chm13/unmapped_R1
       read_2: humanMapper_chm13/unmapped_R2
-      kraken_res: remove_taxID/krakenNB_res
+      kraken_res: only_position/kraken_pos
     out: [readNB_1, readNB_2]
   count-genome3:
     run: preVirome/countFast.cwl

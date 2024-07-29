@@ -34,7 +34,7 @@ for line in file_contents:
             lines_starting_with_U.append(line)
 
 # Create a new file called "output.txt" in write mode
-with open("notBacteriaLines.lst", "w") as output_file:
+with open("notBacteriaLines.txt", "w") as output_file:
     # Write the lines starting with "U" to the file
     for line in lines_starting_with_U:
         output_file.write(line)

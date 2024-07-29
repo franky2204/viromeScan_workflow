@@ -25,4 +25,4 @@ outputs:
   krakenNB_res:
     type: File
     outputBinding:
-      glob: "notBacteriaLines.lst"
+      glob: "notBacteriaLines.txt"
