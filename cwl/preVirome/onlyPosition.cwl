@@ -2,19 +2,24 @@ cwlVersion: v1.2
 class: CommandLineTool
 
 requirements:
-  InlineJavascriptRequirement: {}  
+  InlineJavascriptRequirement: {}
 
 hints:
   DockerRequirement:
     dockerPull: fpant/viromescan
 
-baseCommand: ["awk", "'{print $2}'" ]
+baseCommand: ["awk"]
 
 inputs:
-    kraken_res:
-        type: File
-        inputBinding:
-            position: 1
+  kraken_res:
+    type: File
+    inputBinding:
+      position: 1
+      prefix: "" 
+
+arguments:
+  - valueFrom: "'{print $2}'"
+    shellQuote: false
 
 stdout: "kraken_pos.lst"
 
