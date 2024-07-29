@@ -15,11 +15,9 @@ inputs:
     type: File
     inputBinding:
       position: 1
-      prefix: "" 
 
 arguments:
-  - valueFrom: "'{print $2}'"
-    shellQuote: false
+  - valueFrom: '{print $2}'
 
 stdout: "kraken_pos.lst"
 
