@@ -85,5 +85,5 @@ steps:
     in:
       read_1: seqtdk_filter/readNB_1
       read_2: seqtdk_filter/readNB_2
-      file_count: count-genome2/count
+      file_count: count-start/count
     out: [count]
