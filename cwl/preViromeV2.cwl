@@ -26,10 +26,6 @@ outputs:
   krakenNB_res:
     type: File
     outputSource: only_position/kraken_pos
-  kraken_res:
-    type: File
-    outputSource: find_kraken_results/kraken_res
-  
     
 
 steps:

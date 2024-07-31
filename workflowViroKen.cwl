@@ -38,15 +38,6 @@ outputs:
   krakenNB_res:
     type: File[]
     outputSource: pre-viromeV2/krakenNB_res
-  readNB_1:
-    type: File[]
-    outputSource: pre-viromeV2/readNB_1
-  readNB_2: 
-    type: File[]
-    outputSource: pre-viromeV2/readNB_2
-  kraken_res:
-    type: File[]
-    outputSource: pre-viromeV2/kraken_res
     
 steps:
   check-input:
@@ -64,7 +55,7 @@ steps:
       threads: threads
       bacteria_ids: bacteria_ids
       kraken_res_dir: kraken_res_dir
-    out: [readNB_1, readNB_2,krakenNB_res,count,kraken_res]
+    out: [readNB_1, readNB_2,krakenNB_res,count]
   viromescan:
     run: cwl/viromescan1.cwl
     scatter: [read_1,read_2]
