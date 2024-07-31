@@ -9,23 +9,6 @@ inputs:
   read_1: File
   read_2: File
   threads: int?
-  index:
-    type: File
-    secondaryFiles:
-      - .amb
-      - .ann
-      - .bwt
-      - .fai
-      - .pac
-      - .sa
-  index_chm13:
-    type: File
-    secondaryFiles:
-      - .amb
-      - .ann
-      - .bwt
-      - .pac
-      - .sa
   bacteria_ids: File
   kraken_res_dir: Directory
   
@@ -59,7 +42,7 @@ steps:
   find_kraken_results:
     run: preVirome/findKrakenResults.cwl
     in:
-      read_1: humanMapper_chm13/unmapped_R1
+      read_1: read_1
       dir: kraken_res_dir
     out: [kraken_res]
   remove_taxID:
