@@ -23,23 +23,6 @@ inputs:
   fastq_directory: Directory
   bacteria_ids: File
   threads: int?
-  index:
-    type: File
-    secondaryFiles:
-      - .amb
-      - .ann
-      - .bwt
-      - .fai
-      - .pac
-      - .sa
-  index_chm13:
-    type: File
-    secondaryFiles:
-      - .amb
-      - .ann
-      - .bwt
-      - .pac
-      - .sa
   kraken_res_dir: Directory
   viro_exec: File
   viro_db: Directory
@@ -76,8 +59,6 @@ steps:
       read_1: check-input/read_1
       read_2: check-input/read_2
       threads: threads
-      index: index
-      index_chm13: index_chm13
       bacteria_ids: bacteria_ids
       kraken_res_dir: kraken_res_dir
     out: [readNB_1, readNB_2,krakenNB_res,count]
